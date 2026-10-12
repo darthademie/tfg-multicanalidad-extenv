@@ -26,7 +26,7 @@ class AppEnvios(ctk.CTk):
         self.frame_buscador = ctk.CTkFrame(self, fg_color="transparent")
         self.frame_buscador.pack(padx=20, pady=(0, 10), fill="x")
 
-        self.entry_busqueda = ctk.CTkEntry(self.frame_buscador, placeholder_text="🔍 Buscar por ID de Cliente (Telegram)...", height=35)
+        self.entry_busqueda = ctk.CTkEntry(self.frame_buscador, placeholder_text="🔍 Buscar por ID de Cliente...", height=35)
         self.entry_busqueda.pack(side="left", fill="x", expand=True, padx=(0, 10))
         # Vinculamos el evento de teclear (KeyRelease) a la función de filtrar
         self.entry_busqueda.bind("<KeyRelease>", self.filtrar_pedidos)
