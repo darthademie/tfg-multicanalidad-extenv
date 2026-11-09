@@ -1,0 +1,62 @@
+---------------------------------------------------------------------------
+INSTRUCCIONES ARRANQUE Y REPRODUCCIÓN (MÓDULO ENVÍOS 53)
+---------------------------------------------------------------------------
+
+1.) Instalamos Python 3 en nuestra máquina Windows.
+Para ello, descargamos el instalador oficial más reciente desde:
+https://www.python.org/downloads/windows/
+
+IMPORTANTE: Al abrir el instalador, en la primera pantalla, es OBLIGATORIO 
+marcar la casilla inferior que dice "Add python.exe to PATH" (o "Add Python 
+3.x to PATH"). Si no marcamos esto, la terminal de Windows no reconocerá 
+los comandos en los siguientes pasos.
+
+2.) Abrimos una consola de comandos de Windows (CMD o PowerShell) y 
+navegamos utilizando el comando "cd" hasta esta misma carpeta, donde 
+se encuentra el archivo "app_envios.py" y el "requirements.txt".
+
+3.) (Buena práctica) Creamos un entorno virtual aislado para instalar 
+las dependencias de este módulo sin afectar al resto del sistema, 
+y a continuación lo activamos:
+
+[ python -m venv venv ]
+[ .\venv\Scripts\activate ]
+
+Sabremos que se ha activado correctamente porque el indicador de la terminal 
+cambiará y mostrará el prefijo "(venv)" al principio de la línea.
+
+4.) Con el entorno virtual activado, instalamos todas las librerías 
+y dependencias necesarias para que el script funcione, ejecutando:
+
+[ pip install -r requirements.txt ]
+
+5.) Una vez finalizada la descarga de dependencias, ejecutamos 
+el microservicio de envíos:
+
+[ python app_envios.py ]
+
+
+---------------------------------------------------------------------------
+TROUBLESHOOTING
+---------------------------------------------------------------------------
+
+Si ocurre alguno de los siguientes problemas durante la instalación:
+
+- La terminal dice "python no se reconoce como un comando" o se abre 
+automáticamente la Microsoft Store:
+El instalador no añadió Python al PATH. Cierra la terminal, vuelve a 
+ejecutar el instalador descargado, dale a "Modify" (Modificar) y asegúrate 
+de marcar la opción de variables de entorno/PATH.
+
+- PowerShell bloquea la activación del entorno virtual (paso 3) con 
+un error de "Execution_Policies" o texto en rojo:
+Esto es una medida de seguridad por defecto de Windows. Para saltarla 
+rápidamente, puedes usar la consola CMD tradicional en lugar de PowerShell, 
+o ejecutar este comando en PowerShell como administrador para dar permisos 
+temporales a tu usuario:
+[ Set-ExecutionPolicy Unrestricted -Scope CurrentUser ]
+
+- Al ejecutar la app salta el error "ModuleNotFoundError":
+Significa que la aplicación está intentando arrancar sin las dependencias. 
+Asegúrate de que ves el prefijo "(venv)" en tu terminal y vuelve a ejecutar 
+el paso 4 (pip install).
